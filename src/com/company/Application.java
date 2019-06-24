@@ -34,5 +34,23 @@ public class Application {
             iceCreamCost=iceCreamStall.calculateIceCreamCost(userType, userFlavor,quantity,iceCreamList);
         }
         System.out.println("Cost of your selected IceCream :" + (iceCreamCost*quantity));
+        String toppings=" ";
+        for (int i = 0; i < iceCreamList.size(); i++) {
+            toppings = iceCreamStall.iSChocolate(userType, userFlavor, iceCreamList);
+        }
+        if (!toppings.equals(" ")) {
+            System.out.printf("%10s", "\tTopping \n");
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            System.out.print("Toppings" + "      \t" + "   Cost\n");
+            System.out.println();
+            System.out.println(toppings);
+            System.out.println("Select the toppings");
+            String userInputToppings = scanner.nextLine();
+            int finalCost = iceCreamStall.calculateTotalCostWithToppings(userInputToppings);
+            System.out.println("TotalCost for Icream :" + (finalCost + iceCreamCost));
+        } else {
+            System.out.println("!Toppings Not available for your flavor..... ");
+        }
     }
 }
+
