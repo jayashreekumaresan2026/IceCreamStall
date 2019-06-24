@@ -26,4 +26,13 @@ class IceCreamStall {
         }
         return iceCreamList;
     }
-}
+        int calculateIceCreamCost(String userInput, String flavor, int quantity,List<IceCream> iceCreamList) {
+            int Cost = 0;
+            for (int i = 0; i < iceCreamList.size(); i++) {
+                if (userInput.equalsIgnoreCase(iceCreamList.get(i).iceCreamType) && flavor.equalsIgnoreCase(iceCreamList.get(i).iceCreamFlavor)) {
+                    Cost = (iceCreamList.get(i).iceCreamCost) * quantity;
+                }
+            }
+            return Cost;
+        }
+    }
